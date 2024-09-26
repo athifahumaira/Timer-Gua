@@ -1,98 +1,78 @@
-/* Kontainer Umum */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+body {
+    background-color: #0a1b2a;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding-top: 100px;
 }
 
-body {
+.countdown {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f7f7f7;
 }
 
-.container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-label {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-}
-
-input[type="date"],
-input[type="time"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Gaya untuk input waktu (horizontal) */
-.time-inputs {
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 8px solid rgba(0, 150, 255, 0.3);
+    border-radius: 50%;
+    margin: 0 20px;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.time-inputs label {
-    margin-right: 10px;
-}
-
-.time-inputs input {
-    padding: 10px;
-    font-size: 16px;
-    width: 25%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
-}
-
-button#resetTimer {
-    background-color: #dc3545;
-}
-
-#timer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.time-box {
-    font-size: 18px;
-    text-align: center;
-    margin: 10px;
-}
-
-span {
+    justify-content: center;
+    align-items: center;
     font-size: 36px;
-    font-weight: bold;
+    color: #ffffff;
+}
+
+.circle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #00d2ff;
+    animation: rotate 60s linear infinite;
+}
+
+.time {
+    font-size: 50px;
+    z-index: 1;
+}
+
+.label {
+    position: absolute;
+    bottom: -40px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #a0a0a0;
+}
+
+#days:before {
+    animation-duration: 86400s; /* 1 day = 86400 seconds */
+}
+
+#hours:before {
+    animation-duration: 3600s; /* 1 hour = 3600 seconds */
+}
+
+#minutes:before {
+    animation-duration: 60s; /* 1 minute = 60 seconds */
+}
+
+#seconds:before {
+    animation-duration: 1s; /* 1 second */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
