@@ -1,12 +1,12 @@
-let timerInterval; // To store the interval so we can clear it later
+let timerInterval;  // Variable to store the interval for the countdown
 
 // Function to start the countdown timer
 function startCountdown(countDownDate) {
-    // Clear any existing timer
+    // Clear any previous interval if it's running
     if (timerInterval) clearInterval(timerInterval);
 
-    // Update the countdown every 1 second
-    timerInterval = setInterval(function() {
+    // Update the countdown every second
+    timerInterval = setInterval(function () {
         const now = new Date().getTime();
         const distance = countDownDate - now;
 
@@ -16,33 +16,47 @@ function startCountdown(countDownDate) {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the corresponding elements
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
+        // Display the result in the respective elements
+        document.getElementById("days").innerHTML = (days < 10 ? "0" : "") + days;
+        document.getElementById("hours").innerHTML = (hours < 10 ? "0" : "") + hours;
+        document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
+        document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
 
-        // If the countdown is over, show "EXPIRED"
+        // If the countdown is over, clear the interval and show "EXPIRED"
         if (distance < 0) {
             clearInterval(timerInterval);
-            document.getElementById("timer").innerHTML = "EXPIRED";
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+            alert("Countdown is over!");
         }
     }, 1000);
 }
 
 // Event listener for the "Start Timer" button
-document.getElementById("startTimer").addEventListener("click", function() {
-    // Get the input value (date and time) from the user
+document.getElementById("startTimer").addEventListener("click", function () {
     const dateTimeInput = document.getElementById("datetime").value;
-
-    // Check if the user has entered a valid date/time
+    
     if (dateTimeInput) {
-        // Convert the user's input to a timestamp
         const countDownDate = new Date(dateTimeInput).getTime();
-        
-        // Start the countdown
         startCountdown(countDownDate);
     } else {
         alert("Please select a valid date and time.");
     }
+});
+
+// Event listener for the "Reset Timer" button
+document.getElementById("resetTimer").addEventListener("click", function () {
+    // Clear the interval
+    if (timerInterval) clearInterval(timerInterval);
+
+    // Reset all timer display values to "00"
+    document.getElementById("days").innerHTML = "00";
+    document.getElementById("hours").innerHTML = "00";
+    document.getElementById("minutes").innerHTML = "00";
+    document.getElementById("seconds").innerHTML = "00";
+
+    // Clear the datetime input field
+    document.getElementById("datetime").value = "";
 });

@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Timer</title>
+    <title>Custom Countdown Timer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Custom Countdown Timer</h1>
+    <div class="container">
+        <h1>Countdown Timer</h1>
 
-    <!-- Input for the user to set the timer -->
-    <label for="datetime">Set your countdown (Date and Time):</label>
-    <input type="datetime-local" id="datetime">
-    <button id="startTimer">Start Timer</button>
+        <!-- Input for the user to set the timer -->
+        <label for="datetime">Set your countdown (Date and Time):</label>
+        <input type="datetime-local" id="datetime">
+        <button id="startTimer">Start Timer</button>
+        <button id="resetTimer">Reset Timer</button>
 
-    <!-- Timer display -->
-    <div id="timer">
-        <span id="days"></span> Days 
-        <span id="hours"></span> Hours 
-        <span id="minutes"></span> Minutes 
-        <span id="seconds"></span> Seconds
+        <!-- Timer display -->
+        <div id="timer">
+            <div class="time-box">
+                <span id="days">00</span> Days
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span> Hours
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span> Minutes
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span> Seconds
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
