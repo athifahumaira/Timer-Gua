@@ -1,3 +1,4 @@
+/* Kontainer Umum */
 * {
     margin: 0;
     padding: 0;
@@ -34,13 +35,34 @@ label {
     display: block;
 }
 
-input {
+input[type="date"],
+input[type="time"] {
     padding: 10px;
     font-size: 16px;
     margin-bottom: 20px;
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+/* Gaya untuk input waktu (horizontal) */
+.time-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.time-inputs label {
+    margin-right: 10px;
+}
+
+.time-inputs input {
+    padding: 10px;
+    font-size: 16px;
+    width: 25%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
 }
 
 button {
