@@ -1,24 +1,41 @@
 body {
-    background-color: #0a1b2a;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b2a;
     color: white;
     font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
-    padding-top: 100px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
 }
 
 .countdown {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 20px;
 }
 
 .circle {
     position: relative;
-    width: 150px;
-    height: 150px;
-    border: 8px solid rgba(0, 150, 255, 0.3);
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin: 0 20px;
+    background-color: transparent;
+    border: 4px solid rgba(0, 150, 255, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,38 +51,44 @@ body {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    border: 8px solid transparent;
+    border: 4px solid transparent;
     border-top-color: #00d2ff;
     animation: rotate 60s linear infinite;
 }
 
+#days:before {
+    border-top-color: #00ffab;
+    animation-duration: 86400s;
+}
+
+#hours:before {
+    border-top-color: #00d2ff;
+    animation-duration: 3600s;
+}
+
+#minutes:before {
+    border-top-color: #00ffab;
+    animation-duration: 60s;
+}
+
+#seconds:before {
+    border-top-color: #00d2ff;
+    animation-duration: 1s;
+}
+
 .time {
-    font-size: 50px;
+    font-size: 48px;
+    font-family: 'Helvetica Neue', sans-serif;
     z-index: 1;
 }
 
 .label {
     position: absolute;
-    bottom: -40px;
-    font-size: 18px;
+    bottom: -30px;
+    font-size: 14px;
     text-transform: uppercase;
     color: #a0a0a0;
-}
-
-#days:before {
-    animation-duration: 86400s; /* 1 day = 86400 seconds */
-}
-
-#hours:before {
-    animation-duration: 3600s; /* 1 hour = 3600 seconds */
-}
-
-#minutes:before {
-    animation-duration: 60s; /* 1 minute = 60 seconds */
-}
-
-#seconds:before {
-    animation-duration: 1s; /* 1 second */
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 @keyframes rotate {
